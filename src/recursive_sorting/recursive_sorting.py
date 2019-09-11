@@ -25,19 +25,27 @@ def merge( arrA, arrB ):
       merged_arr.append(b[0])
       b.pop(0)
     print(merged_arr)
-    return merged_arr
+  return merged_arr
+
+merge([1, 3, 5, 99], [2, 4, 6, 77])
+
+
+
 
 # TO-DO: implement the Merge Sort function below USING RECURSION
 def merge_sort( arr ):
     # split each array in half and again until each array has just one element
     if len(arr) > 1:
       mid = len(arr)//2
-      c = (arr[:mid])
-      d = (arr[mid:])
+      c = merge_sort(arr[:mid])
+      d = merge_sort(arr[mid:])
+      return merge(c , d)
+    else:
+      return arr
       
     #eventually merge each piece of the OG array 
     #return merge(c , d)
-    return arr
+    #return arr
 
 
 # STRETCH: implement an in-place merge sort algorithm
